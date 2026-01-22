@@ -1,7 +1,7 @@
 # GPU Accelerated Kubernetes Machine Learning Platform
 Machine Learning platform with NVIDIA 3050. 
 
-#### Hardware
+## Hardware
 Control Plane: 
   - 
 GPU worker node:

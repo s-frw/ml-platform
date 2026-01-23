@@ -10,6 +10,7 @@ spec:
     chart: kube-prometheus-stack
     targetRevision: 58.5.0
     helm:
+      skipCrds: false
       valueFiles:
         - values.yaml
   destination:
@@ -21,4 +22,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-
+      - ServerSideApply=true

@@ -1,0 +1,27 @@
+prometheus:
+  prometheusSpec:
+    retention: 7d
+    resources:
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    storageSpec: null
+
+alertmanager:
+  enabled: true
+
+grafana:
+  enabled: true
+  adminPassword: admin
+  defaultDashboardsEnabled: true
+  service:
+    type: ClusterIP
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
+
+defaultRules:
+  create: true

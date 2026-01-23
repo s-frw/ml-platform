@@ -7,8 +7,8 @@ Machine Learning platform with NVIDIA 3050.
   - RAM 8 Gb
 ### GPU worker node:
   - 8 CPUs i3-10105F @ 3.70 GHz
-  - NVIDIA GeForce 3050 8GB VRAM
   - RAM 24 Gb
+  - NVIDIA GeForce 3050 8GB VRAM
 
 ## Core Platform
  - Ubuntu Server 22.04 LTS

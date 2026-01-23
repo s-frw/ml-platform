@@ -1,0 +1,3 @@
+resources:
+  - cilium-config.yaml
+  - cilium-daemonset.yaml

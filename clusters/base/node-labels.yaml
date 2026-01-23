@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Node
+metadata:
+  name: c1-node1
+  labels:
+    role: worker
+    accelerator: nvidia
+---
+apiVersion: v1
+kind: Node
+metadata:
+  name: c1-cp1
+  labels:
+    role: control-plane
+

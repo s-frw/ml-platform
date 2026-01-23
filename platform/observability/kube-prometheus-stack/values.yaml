@@ -5,7 +5,12 @@ prometheus:
       requests:
         cpu: 200m
         memory: 1Gi
-    storageSpec: null
+    storageSpec:
+      storageClassName: local-ssd
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 20Gi
 
 alertmanager:
   enabled: true

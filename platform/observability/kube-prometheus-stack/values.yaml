@@ -6,11 +6,13 @@ prometheus:
         cpu: 200m
         memory: 1Gi
     storageSpec:
-      storageClassName: local-ssd
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 20Gi
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-ssd
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 20Gi
 
 alertmanager:
   enabled: true

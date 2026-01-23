@@ -1,4 +1,5 @@
 prometheus:
+  enabled: true
   prometheusSpec:
     retention: 7d
     resources:

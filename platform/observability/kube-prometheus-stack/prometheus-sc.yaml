@@ -3,6 +3,6 @@ kind: StorageClass
 metadata:
   name: local-ssd
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
 reclaimPolicy: Retain
 

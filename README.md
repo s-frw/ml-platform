@@ -2,9 +2,10 @@
 Machine Learning platform with NVIDIA 3050. 
 
 ## Hardware
-Control Plane: 
-  - 
-GPU worker node:
+### Control Plane: 
+  - 6 CPUs i5-6300U @ 2.40 GHz
+  - RAM 8 Gb
+### GPU worker node:
   - 8 CPUs i3-10105F @ 3.70 GHz
   - NVIDIA GeForce 3050 8GB VRAM
   - RAM 24 Gb

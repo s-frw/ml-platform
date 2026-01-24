@@ -1,27 +1,18 @@
 prometheus:
   enabled: true
   prometheusSpec:
-    retention: 7d
-    resources:
-      requests:
-        cpu: 200m
-        memory: 1Gi
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          storageClassName: local-ssd
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 20Gi
+    replicas: 1
+    retention: 12h
+    storageSpec: null
 
 alertmanager:
   enabled: true
+  alertmanagerSpec:
+    storage: null
 
 grafana:
   enabled: true
   adminPassword: admin
-  defaultDashboardsEnabled: true
   service:
     type: ClusterIP
 
@@ -31,5 +22,3 @@ kubeStateMetrics:
 nodeExporter:
   enabled: true
 
-defaultRules:
-  create: true

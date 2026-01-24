@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
 spec:
   project: platform
+
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: kube-prometheus-stack
@@ -13,9 +14,11 @@ spec:
       skipCrds: false
       valueFiles:
         - values.yaml
+
   destination:
     server: https://kubernetes.default.svc
     namespace: observability
+
   syncPolicy:
     automated:
       prune: true
@@ -23,8 +26,10 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+
   ignoreDifferences:
     - group: monitoring.coreos.com
       kind: "*"
       jsonPointers:
-      - /status
+        - /status
+

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nvidia-device-plugin
+  namespace: argocd
+spec:
+  project: platform
+  source:
+    repoURL: https://github.com/s-frw/ml-platform
+    targetRevision: HEAD
+    path: platform/gpu/nvidia-device-plugin/base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+

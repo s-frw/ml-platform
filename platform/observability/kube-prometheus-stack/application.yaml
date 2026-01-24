@@ -23,3 +23,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+  ignoreDifferences:
+    - group: monitoring.coreos.com
+      kind: "*"
+      jsonPointers:
+      - /status

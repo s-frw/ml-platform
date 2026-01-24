@@ -6,9 +6,17 @@ metadata:
 spec:
   project: platform
   source:
-    repoURL: https://github.com/s-frw/ml-platform
-    targetRevision: HEAD
-    path: platform/gpu/nvidia-device-plugin/base
+    repoURL: https://nvidia.github.io/k8s-device-plugin
+    chart: nvidia-device-plugin
+    targetRevision: 0.18.1
+    helm:
+      values: |
+        nodeSelector:
+          nvidia.com/gpu.present: "true"
+        tolerations:
+          - key: "nvidia.com/gpu"
+            operator: "Exists"
+            effect: "NoSchedule"
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system

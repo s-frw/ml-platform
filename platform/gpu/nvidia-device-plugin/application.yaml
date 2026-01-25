@@ -21,10 +21,7 @@ spec:
 
         daemonset:
           tolerations:
-            - key: "nvidia.com/gpu"
-              operator: "Exists"
-              effect: "NoSchedule"
-
+            - operator: "Exists"
         kubeletPath: /var/lib/kubelet
         compatWithCPUManager: false
         runtimeClassName: ""

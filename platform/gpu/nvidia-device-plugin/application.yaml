@@ -5,9 +5,11 @@ metadata:
   namespace: argocd
 spec:
   project: platform
+
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
+
   source:
     repoURL: https://nvidia.github.io/k8s-device-plugin
     chart: nvidia-device-plugin
@@ -17,10 +19,18 @@ spec:
         nodeSelector:
           accelerator: nvidia
 
-        tolerations:
-          - key: "gpu"
-            operator: "Exists"
-            effect: "NoSchedule"
+        daemonset:
+          tolerations:
+            - key: "gpu"
+              operator: "Exists"
+              effect: "NoSchedule"
+
+        kubeletPath: /var/lib/kubelet
+        compatWithCPUManager: false
+        runtimeClassName: ""
+
+        failOnInitError: false
+
   syncPolicy:
     automated:
       prune: true

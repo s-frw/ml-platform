@@ -21,7 +21,7 @@ spec:
 
         daemonset:
           tolerations:
-            - key: "gpu"
+            - key: "nvidia.com/gpu"
               operator: "Exists"
               effect: "NoSchedule"
 

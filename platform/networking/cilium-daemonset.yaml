@@ -395,10 +395,7 @@ spec:
       serviceAccountName: cilium
       terminationGracePeriodSeconds: 1
       tolerations:
-      - operator: Exists
-      - key: "gpu"
-        operator: "Exists"
-        effect: "NoSchedule"
+      - operator: "Exists"
       volumes:
       - emptyDir: {}
         name: tmp

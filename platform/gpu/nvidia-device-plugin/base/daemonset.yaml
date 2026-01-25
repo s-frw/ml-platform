@@ -6,27 +6,21 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: nvidia-device-plugin-ds
-  updateStrategy:
-    type: RollingUpdate
+      app: nvidia-device-plugin
   template:
     metadata:
       labels:
-        name: nvidia-device-plugin-ds
+        app: nvidia-device-plugin
     spec:
       nodeSelector:
         accelerator: nvidia
-      tolerations:
-        - key: nvidia.com/gpu
-          operator: Exists
-          effect: NoSchedule
       containers:
         - name: nvidia-device-plugin-ctr
           image: nvcr.io/nvidia/k8s-device-plugin:v0.18.1
           args:
             - --fail-on-init-error=false
           securityContext:
-            allowPrivilegeEscalation: false
+            privileged: true
           volumeMounts:
             - name: device-plugin
               mountPath: /var/lib/kubelet/device-plugins

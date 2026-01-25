@@ -3,6 +3,8 @@ kind: DaemonSet
 metadata:
   name: nvidia-device-plugin-daemonset
   namespace: kube-system
+  labels:
+    app: nvidia-device-plugin
 spec:
   selector:
     matchLabels:
@@ -14,22 +16,24 @@ spec:
     spec:
       nodeSelector:
         accelerator: nvidia
-    tolerations:
-        - key: "node-role.kubernetes.io/control-plane" 
-	  operator: "Exists"
-	  effect: "NoSchedule"
-    containers:
+
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+
+      containers:
         - name: nvidia-device-plugin-ctr
           image: nvcr.io/nvidia/k8s-device-plugin:v0.18.1
           args:
             - --fail-on-init-error=false
-          securityContext:
-            privileged: true
           volumeMounts:
             - name: device-plugin
               mountPath: /var/lib/kubelet/device-plugins
+
       volumes:
         - name: device-plugin
           hostPath:
             path: /var/lib/kubelet/device-plugins
+            type: Directory
 

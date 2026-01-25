@@ -5,13 +5,22 @@ metadata:
   namespace: argocd
 spec:
   project: platform
-  source:
-    repoURL: https://github.com/s-frw/ml-platform
-    targetRevision: HEAD
-    path: platform/gpu/nvidia-device-plugin/base
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
+  source:
+    repoURL: https://nvidia.github.io/k8s-device-plugin
+    chart: nvidia-device-plugin
+    targetRevision: 0.15.0
+    helm:
+      values: |
+        nodeSelector:
+          accelerator: nvidia
+
+        tolerations:
+          - key: "nvidia.com/gpu"
+            operator: "Exists"
+            effect: "NoSchedule"
   syncPolicy:
     automated:
       prune: true

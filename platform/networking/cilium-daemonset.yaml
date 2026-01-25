@@ -396,6 +396,9 @@ spec:
       terminationGracePeriodSeconds: 1
       tolerations:
       - operator: Exists
+      - key: "gpu"
+        operator: "Exists"
+        effect: "NoSchedule"
       volumes:
       - emptyDir: {}
         name: tmp

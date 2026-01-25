@@ -18,7 +18,7 @@ spec:
           accelerator: nvidia
 
         tolerations:
-          - key: "nvidia.com/gpu"
+          - key: "gpu"
             operator: "Exists"
             effect: "NoSchedule"
   syncPolicy:

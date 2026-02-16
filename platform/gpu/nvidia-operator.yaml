@@ -20,9 +20,6 @@ spec:
       containers:
         - name: nvidia-device-plugin-ctr
           image: nvcr.io/nvidia/k8s-device-plugin:1.16
-          resources:
-            limits:
-              nvidia.com/gpu: 1
           securityContext:
             privileged: true
       nodeSelector:

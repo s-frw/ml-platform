@@ -27,7 +27,7 @@ spec:
         accelerator: nvidia
       containers:
         - name: nvidia-device-plugin-ctr
-          image: registry.k8s.io/nvidia-device-plugin/nvidia-device-plugin:v0.19.0
+          image: ghcr.io/nvidia/k8s-device-plugin:latest
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true

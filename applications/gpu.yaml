@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gpu
+  namespace: argocd
+spec:
+  project: platform
+  source:
+    repoURL: https://github.com/s-frw/ml-platform
+    targetRevision: HEAD
+    path: platform/gpu
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gpu
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+

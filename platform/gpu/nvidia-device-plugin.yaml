@@ -27,7 +27,7 @@ spec:
         accelerator: nvidia
       containers:
         - name: nvidia-device-plugin-ctr
-          image: nvidia/k8s-device-plugin:0.11.0
+          image: nvidia/k8s-device-plugin:v0.11.0-ubuntu20.04
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true

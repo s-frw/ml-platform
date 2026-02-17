@@ -1,2 +1,0 @@
-curl -o platform/cd/argocd/install.yaml \
-  https://raw.githubusercontent.com/argoproj/argo-cd/v3.2.6/manifests/install.yaml

@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_USER/ml-platform.git
+    repoURL: https://github.com/s-frw/ml-platform.git
     targetRevision: HEAD
     path: platform/data/postgres
     helm:

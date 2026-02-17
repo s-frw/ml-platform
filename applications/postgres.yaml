@@ -6,18 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/s-frw/ml-platform.git
-    targetRevision: HEAD
-    path: platform/data/postgres
-    helm:
-      chart: postgresql
-      repoURL: https://charts.bitnami.com/bitnami
-      targetRevision: 18.3.0
-      valueFiles:
-        - values.yaml
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: postgresql
+    targetRevision: 18.3.0
   destination:
     server: https://kubernetes.default.svc
-    namespace: pgsql-db
+    namespace: psql-db
   syncPolicy:
     automated:
       prune: true

@@ -1,0 +1,13 @@
+auth:
+  username: psql_user
+  password: psql_password
+  database: psql_db
+
+primary:
+  persistence:
+    enabled: true
+    size: 20Gi
+
+metrics:
+  enabled: true
+

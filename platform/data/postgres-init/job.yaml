@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postgres-init
+  namespace: psql-db
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: psql
+          image: bitnami/postgresql:latest
+          env:
+            - name: PGPASSWORD
+              value: psql_password
+          command:
+            - /bin/sh
+            - -c
+            - |
+              psql -h postgres-postgresql -U psql_user -d psql_db <<EOF
+              CREATE TABLE IF NOT EXISTS candidates (
+                id UUID PRIMARY KEY,
+                source VARCHAR(50),
+                ra DOUBLE PRECISION,
+                dec DOUBLE PRECISION,
+                detection_score DOUBLE PRECISION,
+                model_version VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+              );
+              EOF
+

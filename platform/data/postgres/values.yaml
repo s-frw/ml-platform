@@ -1,7 +1,9 @@
 auth:
+  enablePostgresUser: true
   username: psql_user
   password: psql_password
   database: psql_db
+  postgresPassword: postgres_admin_password
 
 primary:
   persistence:

@@ -21,7 +21,7 @@ spec:
             - -c
             - |
               mlflow server \
-              --backend-store-uri=postgresql+psycopg2://mlflow:mlflowpass@postgres-postrgresql.psql-db.svc.cluster.local:5432/mlflow \
+              --backend-store-uri=postgresql+psycopg2://mlflow:mlflowpass@postgres-postgresql.psql-db.svc.cluster.local:5432/mlflow \
               --default-artifact-root=s3://mlflow/ \
               --host=0.0.0.0 \
               --port=5000

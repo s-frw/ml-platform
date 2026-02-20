@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mlflow
-        image: sfr1/mlflow:v2.9.2
+        image: sfr1/mlflow:v2.14.3
         command: ["/bin/sh"]
         args:
           - -c

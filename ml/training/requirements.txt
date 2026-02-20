@@ -1,3 +1,4 @@
-mlflow[s3]==2.14.3
+mlflow==2.14.3
+boto3
 scikit-learn
 pandas

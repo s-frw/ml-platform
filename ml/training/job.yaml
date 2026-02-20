@@ -10,7 +10,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: trainer
-          image: sfr1/iris-training:0.1.1
+          image: sfr1/iris-training:0.1.2
           env:
             - name: MLFLOW_TRACKING_URI
               value: "http://mlflow.ml-platform.svc.cluster.local:5000"

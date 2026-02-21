@@ -1,6 +1,6 @@
 # GPU-Accelerated Machine Learning Platform
 
-Production-style Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA GPU acceleration.
+Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA GPU acceleration.
 
 ---
 
@@ -76,4 +76,18 @@ Monitored signals:
 - Node resource utilization  
 - Pod-level metrics  
 - Cluster health  
-- ML workload resource usage  
+- ML workload resource usage
+
+---
+
+## Screenshots
+
+ArgoCD apps view
+![Argo CD Applications](docs/screenshots/argocd-screenshot.png)
+
+MLflow
+![MLflow Experiments](docs/screenshots/mlflow-experiments.png)
+
+Grafana Dashboard
+![Grafana Dashboard](docs/screenshots/grafana-dashboard.png)
+

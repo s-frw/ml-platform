@@ -82,12 +82,14 @@ Monitored signals:
 
 ## Screenshots
 
-ArgoCD apps view
-![Argo CD Applications](docs/screenshots/argocd_screenshot.png)
+### ArgoCD Apps Overview
+![ArgoCD Applications Overview](docs/screenshots/argocd_overview.png)
 
-MLflow
-![MLflow Experiments](docs/screenshots/mlflow-experiments.png)
+### ArgoCD App of Apps Detailed View
+![ArgoCD App of Apps](docs/screenshots/argocd_app-of-apps.png)
 
-Grafana Dashboard
-![Grafana Dashboard](docs/screenshots/grafana-dashboard.png)
+### Completed MLflow Experiment and Registered Model
+![MLflow Experiments](docs/screenshots/mlflow_experiments.png)
 
+### Grafana USE Method Dashboard
+![Grafana USE Dashboard](docs/screenshots/grafana_USE-dashboard.png)

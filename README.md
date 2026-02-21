@@ -2,8 +2,6 @@
 
 Production-style Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA GPU acceleration.
 
-This project demonstrates practical ML Infrastructure, GitOps, GPU scheduling, and observability in a reproducible environment.
-
 ---
 
 ## Hardware Architecture

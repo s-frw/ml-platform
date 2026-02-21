@@ -58,7 +58,7 @@ Capabilities:
 
 ## GitOps and Continuous Delivery
 
-- Argo CD — Declarative GitOps deployment  
+- Argo CD - Declarative GitOps deployment  
 - App-of-Apps architecture  
 - Drift detection and reconciliation  
 - Project-level isolation  
@@ -69,8 +69,8 @@ All platform components are deployed and managed declaratively from Git.
 
 ## Observability Stack
 
-- Prometheus — Metrics collection  
-- Grafana — Dashboards and visualization  
+- Prometheus - Metrics collection  
+- Grafana - Dashboards and visualization  
 
 Monitored signals:
 - Node resource utilization  

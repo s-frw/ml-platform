@@ -83,7 +83,7 @@ Monitored signals:
 ## Screenshots
 
 ArgoCD apps view
-![Argo CD Applications](docs/screenshots/argocd-screenshot.png)
+![Argo CD Applications](docs/screenshots/argocd_screenshot.png)
 
 MLflow
 ![MLflow Experiments](docs/screenshots/mlflow-experiments.png)

@@ -49,10 +49,10 @@ Design goals:
 - PostgreSQL — MLflow backend metadata store  
 
 Capabilities:
-- Reproducible ML experiments  
-- Artifact versioning  
-- Pipeline-based model training  
-- Persistent experiment metadata  
+- Reproducible ML experiments using a custom MLflow Docker image, pushed to Docker Hub and deployed in Kubernetes 
+- Artifact versioning with MinIO to store and track datasets, model checkpoints, and training outputs  
+- Pipeline-based model training using Argo Workflows for automated, repeatable ML pipelines  
+- Persistent experiment metadata stored in PostgreSQL to enable auditing, comparison, and model lineage tracking 
 
 ---
 

@@ -43,10 +43,10 @@ Design goals:
 
 ## MLOps Stack
 
-- Argo Workflows — ML training pipelines  
-- MLflow — Experiment tracking and model registry  
-- MinIO — S3-compatible artifact storage  
-- PostgreSQL — MLflow backend metadata store  
+- Argo Workflows - ML training pipelines  
+- MLflow - Experiment tracking and model registry  
+- MinIO - S3-compatible artifact storage  
+- PostgreSQL - MLflow backend metadata store  
 
 Capabilities:
 - Reproducible ML experiments using a custom MLflow Docker image, pushed to Docker Hub and deployed in Kubernetes 

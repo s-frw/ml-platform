@@ -1,18 +1,19 @@
 ML Platform Architecture
+
 1. Overview
 
-This repository defines a GitOps ML platform deployed on Kubernetes.
+This repository defines a GitOps-driven ML platform deployed on Kubernetes.
 All infrastructure and ML components are declaratively managed and continuously reconciled from Git.
 
 The platform follows the App-of-Apps GitOps model using Argo CD to synchronize cluster state from this repository.
 
 Core Capabilities
 
-GitOps infrastructure management
+GitOps-based infrastructure management
 
-ML experiment tracking
+ML experiment tracking and model lifecycle management
 
-Artifact storage
+Artifact storage with S3-compatible backend
 
 GPU-aware training workloads
 
@@ -20,7 +21,9 @@ Full observability stack
 
 Declarative environment configuration
 
+
 2. High level architecture
+
 Git Repository
       │
       ▼
@@ -41,30 +44,35 @@ Kubernetes Cluster
       │
       └── Networking (Cilium CNI)
 
+
 3. GitOps Model
 
 The platform uses:
 
 Argo CD App-of-Apps pattern (applications/root-app.yaml)
 
-Kustomize overlays.
+Kustomize overlays
 
-Declarative environment structure:
+Declarative environment structure
+
+Operational flow:
 
 Changes are pushed to Git.
 
 ArgoCD detects repository updates.
 
-Desired state is reconciled.
+Desired state is compared with the live cluster state.
 
-Kubernetes resources are applied automatically.
+Drift is reconciled automatically.
+
+Kubernetes resources are applied to converge the cluster to the declared state.
 
 
 4. Core Components
 
 4.1 MLflow
 
-Experiment tracking is handled by MLflow.
+Experiment tracking and model lifecycle management is handled by MLflow.
 
 Deployment path:
 
@@ -79,7 +87,7 @@ Artifact store: MinIO
 
 4.2 Artifact Storage (MinIO)
 
-Artifacts are stored in MinIO.
+Artifacts are stored in MinIO, providing S3-compatible object storage.
 
 Location:
 
@@ -88,7 +96,7 @@ platform/ml/minio/
 
 4.3 Metadata Backend (PostgreSQL)
 
-Experiment metadata is stored in PostgreSQL.
+Experiment metadata and model registry information are stored in PostgreSQL.
 
 Location:
 
@@ -105,6 +113,8 @@ Containers are built via:
 
 ml/training/Dockerfile
 
+Workloads support CPU and GPU execution depending on node scheduling and available resources.
+
 
 4.5 GPU Enablement
 
@@ -114,16 +124,16 @@ NVIDIA device plugin
 
 Node labeling (clusters/base/node-labels.yaml)
 
-Hybrid CPU/GPU execution model.
+This enables explicit GPU resource requests and hybrid CPU/GPU execution.
 
 
 4.6 Observability Stack
 
 Monitoring stack includes:
 
-Prometheus
+Prometheus (metrics collection)
 
-Grafana
+Grafana (visualization and dashboards)
 
 Location:
 
@@ -132,7 +142,7 @@ platform/observability/
 
 4.7 Networking
 
-Cluster networking is powered by Cilium.
+Cluster networking is powered by Cilium CNI.
 
 Location:
 
@@ -145,12 +155,10 @@ Cluster configuration is organized under:
 
 clusters/
 
-Designed for future expansion:
+Designed for future expansion into multiple environments:
 
 base/
 
 dev/
 
 prod/
-
-

@@ -26,11 +26,6 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 - containerd (CRI runtime)  
 - Cilium (eBPF-based CNI networking)  
 
-Design goals:
-- Production-like Kubernetes setup  
-- Explicit control over networking and runtime  
-- GPU-aware scheduling and resource isolation  
-
 ---
 
 ## GPU Enablement
@@ -47,12 +42,6 @@ Design goals:
 - MLflow - Experiment tracking and model registry  
 - MinIO - S3-compatible artifact storage  
 - PostgreSQL - MLflow backend metadata store  
-
-Capabilities:
-- Reproducible ML experiments using a custom MLflow Docker image, pushed to Docker Hub and deployed in Kubernetes 
-- Artifact versioning with MinIO to store and track datasets, model checkpoints, and training outputs  
-- Pipeline-based model training using Argo Workflows for automated, repeatable ML pipelines  
-- Persistent experiment metadata stored in PostgreSQL to enable auditing, comparison, and model lineage tracking 
 
 ---
 

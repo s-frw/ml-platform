@@ -1,0 +1,10 @@
+driver:
+  enabled: false
+toolkit:
+  enabled: false
+dcgmExporter:
+  enabled: true
+nodeStatusExporter:
+  enabled: true
+nfd:
+  enabled: true

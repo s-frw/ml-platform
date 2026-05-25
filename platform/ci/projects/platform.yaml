@@ -10,7 +10,8 @@ spec:
   sourceRepos:
     - https://github.com/s-frw/ml-platform
     - https://prometheus-community.github.io/helm-charts
-    - https://nvidia.github.io/k8s-device-plugin 
+    - https://nvidia.github.io/k8s-device-plugin
+    - https://helm.ngc.nvidia.com/nvidia 
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

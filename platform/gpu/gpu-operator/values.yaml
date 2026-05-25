@@ -4,6 +4,10 @@ toolkit:
   enabled: false
 dcgmExporter:
   enabled: true
+  serviceMonitor: 
+    enabled: true
+    additionalLabels:
+      release: kube-prometheus-stack
 nodeStatusExporter:
   enabled: true
 nfd:

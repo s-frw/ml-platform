@@ -5,6 +5,7 @@ metadata:
   namespace: observability
   labels:
     grafana_dashboard: "1"
+
 data:
   gpu-observability.json: |
     {
@@ -21,11 +22,14 @@ data:
           }
         ]
       },
+
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
       "id": null,
+
       "panels": [
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -47,17 +51,25 @@ data:
           },
           "gridPos": { "h": 6, "w": 4, "x": 0, "y": 0 },
           "id": 1,
-          "options": { "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"] }, "showThresholdLabels": false, "showThresholdMarkers": true },
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"]
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
           "title": "GPU Utilization",
           "type": "gauge",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_GPU_UTIL{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_GPU_UTIL{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "GPU {{gpu}}",
               "refId": "A"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -79,17 +91,25 @@ data:
           },
           "gridPos": { "h": 6, "w": 4, "x": 4, "y": 0 },
           "id": 2,
-          "options": { "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"] }, "showThresholdLabels": false, "showThresholdMarkers": true },
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"]
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
           "title": "Memory Used",
           "type": "gauge",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_FB_USED{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_FB_USED{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "GPU {{gpu}}",
               "refId": "A"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -111,17 +131,25 @@ data:
           },
           "gridPos": { "h": 6, "w": 4, "x": 8, "y": 0 },
           "id": 3,
-          "options": { "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"] }, "showThresholdLabels": false, "showThresholdMarkers": true },
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"]
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
           "title": "GPU Temperature",
           "type": "gauge",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_GPU_TEMP{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_GPU_TEMP{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "GPU {{gpu}}",
               "refId": "A"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -143,17 +171,25 @@ data:
           },
           "gridPos": { "h": 6, "w": 4, "x": 12, "y": 0 },
           "id": 4,
-          "options": { "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"] }, "showThresholdLabels": false, "showThresholdMarkers": true },
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"]
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
           "title": "Power Usage",
           "type": "gauge",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_POWER_USAGE{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_POWER_USAGE{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "GPU {{gpu}}",
               "refId": "A"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -164,32 +200,42 @@ data:
           },
           "gridPos": { "h": 8, "w": 12, "x": 0, "y": 6 },
           "id": 5,
-          "options": { "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "single" } },
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single"
+            }
+          },
           "title": "GPU & Memory Utilization",
           "type": "timeseries",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_GPU_UTIL{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_GPU_UTIL{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "GPU Util",
               "refId": "A"
             },
             {
-              "expr": "DCGM_FI_DEV_MEM_COPY_UTIL{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_MEM_COPY_UTIL{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Mem Copy Util",
               "refId": "B"
             },
             {
-              "expr": "DCGM_FI_DEV_ENC_UTIL{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_ENC_UTIL{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Encoder Util",
               "refId": "C"
             },
             {
-              "expr": "DCGM_FI_DEV_DEC_UTIL{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_DEC_UTIL{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Decoder Util",
               "refId": "D"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -204,17 +250,18 @@ data:
           "type": "timeseries",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_FB_USED{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_FB_USED{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Used",
               "refId": "A"
             },
             {
-              "expr": "DCGM_FI_DEV_FB_FREE{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_FB_FREE{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Free",
               "refId": "B"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -229,17 +276,18 @@ data:
           "type": "timeseries",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_GPU_TEMP{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_GPU_TEMP{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "GPU Temp",
               "refId": "A"
             },
             {
-              "expr": "DCGM_FI_DEV_MEMORY_TEMP{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_MEMORY_TEMP{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Memory Temp",
               "refId": "B"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -254,17 +302,18 @@ data:
           "type": "timeseries",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_SM_CLOCK{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_SM_CLOCK{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "SM Clock",
               "refId": "A"
             },
             {
-              "expr": "DCGM_FI_DEV_MEM_CLOCK{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_MEM_CLOCK{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Memory Clock",
               "refId": "B"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -279,12 +328,13 @@ data:
           "type": "timeseries",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_POWER_USAGE{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_POWER_USAGE{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "Power (W)",
               "refId": "A"
             }
           ]
         },
+
         {
           "datasource": "Prometheus",
           "fieldConfig": {
@@ -303,21 +353,32 @@ data:
           },
           "gridPos": { "h": 8, "w": 12, "x": 12, "y": 22 },
           "id": 10,
-          "options": { "colorMode": "background", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"] } },
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"]
+            }
+          },
           "title": "XID Errors",
           "type": "stat",
           "targets": [
             {
-              "expr": "DCGM_FI_DEV_XID_ERRORS{instance=~\"$instance\"}",
+              "expr": "max by (UUID, gpu) (DCGM_FI_DEV_XID_ERRORS{job=\"nvidia-dcgm-exporter\",instance=~\"$instance\"})",
               "legendFormat": "XID Errors",
               "refId": "A"
             }
           ]
         }
+
       ],
+
       "schemaVersion": 30,
       "style": "dark",
       "tags": ["gpu", "nvidia", "dcgm"],
+
       "templating": {
         "list": [
           {
@@ -338,10 +399,15 @@ data:
           }
         ]
       },
-      "time": { "from": "now-30m", "to": "now" },
+
+      "time": {
+        "from": "now-30m",
+        "to": "now"
+      },
+
       "timepicker": {},
       "timezone": "browser",
       "title": "NVIDIA RTX 3050 — GPU Observability",
       "uid": "gpu-observability-3050",
-      "version": 1
+      "version": 2
     }

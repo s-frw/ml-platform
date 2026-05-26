@@ -43,6 +43,9 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 - MinIO - S3-compatible artifact storage  
 - PostgreSQL - MLflow backend metadata store  
 
+## Inference
+-- Open WebUI connected to vLLM serving Qwen2.5-3B-Instruct-GPTQ-Int4 via OpenAI-compatible API.
+
 ---
 
 ## GitOps and Continuous Delivery
@@ -62,6 +65,7 @@ All platform components are deployed and managed declaratively from Git.
 - Grafana - Dashboards and visualization  
 
 Monitored signals:
+- GPU resource utilization and temperature (from DCGM-Exporter)
 - Node resource utilization  
 - Pod-level metrics  
 - Cluster health  
@@ -80,5 +84,8 @@ Monitored signals:
 ### Completed MLflow Experiment and Registered Model
 ![MLflow Experiments](docs/screenshots/mlflow_experiments.png)
 
-### Grafana USE Method Dashboard
-![Grafana USE Dashboard](docs/screenshots/grafana_USE-dashboard.png)
+## Grafana GPU Dashboard while serving Qwen2.5-3B-Instruct-GPTQ-Int4
+![Grafana_GPU_Dashboard](docs/screenshots/grafana_gpu.png)
+
+## Open WebUI connected to vLLM serving Qwen model
+![Open_WebUI](docs/screenshots/open-webui.png)

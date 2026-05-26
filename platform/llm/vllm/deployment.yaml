@@ -21,9 +21,9 @@ spec:
           image: vllm/vllm-openai:v0.6.6
           args:
             - "--model"
-            - "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4"
+            - "Qwen/Qwen3-4B-AWQ"
             - "--quantization"
-            - "gptq"
+            - "awq"
             - "--gpu-memory-utilization"
             - "0.85"
             - "--host"

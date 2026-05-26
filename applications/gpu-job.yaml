@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/s-frw/ml-platform
     targetRevision: HEAD
-    path: ml/gpu-job
+    path: platform/ml/gpu-job
   destination:
     server: https://kubernetes.default.svc
     namespace: ml-platform

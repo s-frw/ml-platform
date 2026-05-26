@@ -70,8 +70,8 @@ Monitored signals:
 - ML workload resource usage
 
 ---
-
-## Screenshots
+<details>
+<summary>Screenshots</summary>
 
 ### ArgoCD Apps Overview
 ![ArgoCD Applications Overview](docs/screenshots/argocd_overview.png)
@@ -87,3 +87,6 @@ Monitored signals:
 
 ## Open WebUI connected to vLLM serving Qwen model
 ![Open_WebUI](docs/screenshots/open-webui.png)
+
+</details>
+

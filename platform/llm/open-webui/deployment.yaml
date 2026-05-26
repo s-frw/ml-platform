@@ -20,6 +20,12 @@ spec:
             - containerPort: 8080
               name: http
           env:
+            - name: ENABLE_OLLAMA_API
+              value: "false"
+            - name: ENABLE_OPENAI_API
+              value: "true"
+            - name: HF_HUB_OFFLINE
+              value: "1"
             - name: OPENAI_API_BASE_URL
               value: "http://vllm-server.llm.svc.cluster.local:8000/v1"
             - name: OPENAI_API_KEY

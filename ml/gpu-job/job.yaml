@@ -1,0 +1,53 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pytorch-gpu-training
+  namespace: ml-platform
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: trainer
+          image: pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+          command:
+            - python
+            - -c
+            - |
+              import torch
+              import mlflow
+              import time
+
+              print(f"CUDA available: {torch.cuda.is_available()}")
+              print(f"GPU: {torch.cuda.get_device_name(0)}")
+
+              mlflow.set_tracking_uri("http://mlflow.ml-platform.svc.cluster.local:5000")
+              mlflow.set_experiment("gpu-benchmark")
+
+              with mlflow.start_run():
+                  device = torch.device("cuda")
+                  
+                  mlflow.log_param("matrix_size", 2048)
+                  mlflow.log_param("iterations", 20)
+                  mlflow.log_param("device", "cuda")
+
+                  a = torch.randn(2048, 2048, device=device)
+                  b = torch.randn(2048, 2048, device=device)
+
+                  for i in range(20):
+                      c = torch.matmul(a, b)
+                      torch.cuda.synchronize()
+                      if i % 10 == 0:
+                          mlflow.log_metric("iteration", i, step=i)
+                          print(f"Iteration {i}/100")
+
+                  mlflow.log_metric("final_iteration", 100)
+                  print("Done")
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+          env:
+            - name: MLFLOW_TRACKING_URI
+              value: "http://mlflow.ml-platform.svc.cluster.local:5000"
+      nodeSelector:
+        accelerator: nvidia

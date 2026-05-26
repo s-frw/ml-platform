@@ -12,9 +12,10 @@ spec:
         - name: trainer
           image: pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
           command:
-            - python
+            - sh
             - -c
             - |
+              pip install mlflow -q && python << 'EOF'
               import torch
               import mlflow
 
@@ -43,6 +44,7 @@ spec:
 
                   mlflow.log_metric("final_iteration", 100)
                   print("Done")
+              EOF
           resources:
             limits:
               nvidia.com/gpu: 1

@@ -1,7 +1,7 @@
 driver:
   enabled: false
 toolkit:
-  enabled: true
+  enabled: false
 dcgmExporter:
   enabled: true
   serviceMonitor: 

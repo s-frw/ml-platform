@@ -19,7 +19,7 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 
 ---
 
-## Core Platform Stack
+## Core Platform 
 
 - Ubuntu Server 22.04 LTS  
 - kubeadm (cluster bootstrap)  
@@ -48,12 +48,10 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 
 ---
 
-## GitOps and Continuous Delivery
+## GitOps 
 
 - Argo CD - Declarative GitOps deployment  
 - App-of-Apps architecture  
-- Drift detection and reconciliation  
-- Project-level isolation  
 
 All platform components are deployed and managed declaratively from Git.
 

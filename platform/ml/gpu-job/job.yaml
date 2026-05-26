@@ -28,14 +28,14 @@ spec:
               with mlflow.start_run():
                   device = torch.device("cuda")
 
-                  mlflow.log_param("matrix_size", 2048)
-                  mlflow.log_param("iterations", 20)
+                  mlflow.log_param("matrix_size", 8192)
+                  mlflow.log_param("iterations", 100)
                   mlflow.log_param("device", "cuda")
 
-                  a = torch.randn(2048, 2048, device=device)
-                  b = torch.randn(2048, 2048, device=device)
+                  a = torch.randn(8192, 8192, device=device)
+                  b = torch.randn(8192, 8192, device=device)
 
-                  for i in range(20):
+                  for i in range(100):
                       c = torch.matmul(a, b)
                       torch.cuda.synchronize()
                       if i % 10 == 0:

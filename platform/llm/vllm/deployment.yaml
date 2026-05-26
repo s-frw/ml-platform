@@ -24,7 +24,6 @@ spec:
             - "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4"
             - "--quantization"
             - "gptq"
-            - "8192"
             - "--gpu-memory-utilization"
             - "0.85"
             - "--host"

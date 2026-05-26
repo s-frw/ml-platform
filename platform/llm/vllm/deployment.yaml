@@ -18,7 +18,7 @@ spec:
         accelerator: nvidia
       containers:
         - name: vllm
-          image: vllm/vllm-openai:v0.6.6
+          image: vllm/vllm-openai:v0.8.5
           args:
             - "--model"
             - "Qwen/Qwen3-4B-AWQ"

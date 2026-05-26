@@ -21,10 +21,9 @@ spec:
           image: vllm/vllm-openai:v0.6.6
           args:
             - "--model"
-            - "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4"
+            - "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4""
             - "--quantization"
             - "gptq"
-            - "--max-model-len"
             - "8192"
             - "--gpu-memory-utilization"
             - "0.85"

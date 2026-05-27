@@ -24,6 +24,8 @@ spec:
             - "Qwen/Qwen3-4B-AWQ"
             - "--quantization"
             - "awq"
+            - "--max-model-len"
+            - "8192"
             - "--gpu-memory-utilization"
             - "0.85"
             - "--host"

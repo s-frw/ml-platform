@@ -4,7 +4,7 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 
 ---
 
-## Hardware Architecture
+## Hardware
 
 ### Control Plane Node
 - Intel i5-6300U @ 2.40GHz (2 cores, 4 threads)
@@ -47,26 +47,21 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 
 ---
 
-## GitOps 
-
-- Argo CD - Declarative GitOps deployment  
-- App-of-Apps architecture  
-
-All platform components are deployed and managed declaratively from Git.
+## Deployment
+* Argo CD with App-of-Apps pattern
 
 ---
 
-## Observability Stack
+## Observability 
 
 - Prometheus - Metrics collection  
-- Grafana - Dashboards and visualization  
+- Grafana - Dashboards
 
 Monitored signals:
 - GPU resource utilization and temperature (from DCGM-Exporter)
 - Node resource utilization  
 - Pod-level metrics  
 - Cluster health  
-- ML workload resource usage
 
 ---
 <details>

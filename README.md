@@ -36,15 +36,14 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 
 ---
 
-## MLOps Stack
-
+## Model Serving & Tracking
 - MLflow - Experiment tracking and model registry  
 - MinIO - S3-compatible artifact storage  
-- PostgreSQL - MLflow backend metadata store  
+- PostgreSQL - MLflow backend  
 
 ## Inference
-- vLLM - OpenAI-compatible inference server
-- Open WebUI - chat interface connected to vLLM serving Qwen2.5-3B-Instruct-GPTQ-Int4
+- vLLM - OpenAI-compatible server  
+- Open WebUI - Chat interface
 
 ---
 

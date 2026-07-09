@@ -19,20 +19,15 @@ Machine Learning platform built on a self-managed Kubernetes cluster with NVIDIA
 
 ---
 
-## Core Platform 
+## Core Platform
+- Ubuntu Server 22.04 LTS
+- kubeadm 
+- containerd 
+- Cilium
 
-- Ubuntu Server 22.04 LTS  
-- kubeadm (cluster bootstrap)  
-- containerd (CRI runtime)  
-- Cilium (eBPF-based CNI networking)  
-
----
-
-## GPU Enablement
-
-- NVIDIA GPU Operator  
-- NVIDIA Device Plugin  
-- GPU resource requests configured using `nvidia.com/gpu`
+## GPU
+- NVIDIA GPU Operator 
+- DCGM Exporter (GPU metrics to Prometheus)
 
 ---
 
